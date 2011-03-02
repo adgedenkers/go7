@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @bouncer.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @bouncer.url %>
+</p>
+
+<p>
+  <b>Chars:</b>
+  <%= @bouncer.chars %>
+</p>
+
+
+<%= link_to 'Edit', edit_bouncer_path(@bouncer) %> |
+<%= link_to 'Back', bouncers_path %>

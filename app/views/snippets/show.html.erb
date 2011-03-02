@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @snippet.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @snippet.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+<%= link_to 'Back', snippets_path %>

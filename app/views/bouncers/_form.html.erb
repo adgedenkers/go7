@@ -1,0 +1,29 @@
+<%= form_for(@bouncer) do |f| %>
+  <% if @bouncer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bouncer.errors.count, "error") %> prohibited this bouncer from being saved:</h2>
+
+      <ul>
+      <% @bouncer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :chars %><br />
+    <%= f.text_field :chars %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
