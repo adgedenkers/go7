@@ -1,8 +1,11 @@
 class BouncersController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   # GET /bouncers
   # GET /bouncers.xml
   def index
-    @bouncers = Bouncer.all
+    @bouncers = Bouncer.find_top_urls
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +83,29 @@ class BouncersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # ~~~~~~~~~~~~~~~~~
+  # My Methods  ~
+  # ~~~~~~~~~~~~~~~~~
+  
+  def all
+    @all_urls = Bouncer.find(:all, :order => "count DESC")
+  end
+  
+  def redirect
+    #@chars = params[:chars]
+    @short_url = Bouncer.first( :conditions => { :chars => params[:chars] } )
+    
+    respond_to do |format|
+      format.html do
+        @short_url.visited!
+        redirect_to(@short_url.url)
+      end
+      #format.stats { render :layout => "application.html" }
+      #format.preview { render :layout => "application.html" }
+    end
+    
+  end
+  
+  
 end

@@ -1,0 +1,332 @@
+.container {
+	width: 710px;
+}
+
+body {
+  font-size: 100%;
+}
+
+header {
+	padding-top: 20px;
+}
+
+header img {
+	padding: 1em;
+	background: #fff;
+}
+
+section {
+	margin-top: 1em;
+	font-size: 120%;
+	padding: 20px;
+	background: #fff;
+}
+
+section h1 {
+	font-size: 200%;
+}
+
+h2.page-title {
+	
+	margin-bottom: 5px;
+}
+h3.page-subtitle {
+	margin-top: 0px;
+}
+
+article h3 {
+	font-size: 115%;
+	margin-bottom: 5px;
+	width: 100%;
+	padding: 10px;
+	background-color: #ddd;
+	
+}
+
+article a {
+	/* VA Red */
+	color: #6B1424;
+	font-weight:bold;
+}
+
+article a:visited {
+	/* VA Red */
+	color: #6B1424;
+	font-weight:bold;
+}
+
+.page-box article {
+	width: 200px;
+}
+
+/* Links */
+
+a {
+	/* VA Blue */
+	color: #1E2D54;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #1E2D54;
+}
+
+/* Navigation */
+
+nav {
+	float: right;
+}
+
+nav.main-menu {
+	text-align: center;
+}
+
+nav {
+	background-color: #fff;
+	padding: 0 0;
+	white-space: nowrap;
+}
+
+nav.sub-menu {
+	float:left;
+	background-color: #dadada;
+	margin-bottom: 10px;
+	padding: 5px;
+	font-size: 90%;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+nav ul li a {
+	padding: 0 5px;
+	font-weight: bold;
+}
+
+nav ul li a:visited {
+	color: #1E2D54;
+}
+
+nav ul li a:hover {
+	text-decoration: underline;
+}
+
+nav ul.sub-menu {
+	font-size: 75%;
+}
+
+nav.sub-menu a {
+	color: #6B1424;
+}
+nav.sub-menu a:visited {
+	color: #6B1424;
+}
+
+/* Signup Button */
+
+a.signup_button {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 190px;
+	color: #fff;
+	background: #006400;
+	font-size: 150%;
+	font-weight: bold;
+	padding: 20px;
+}
+
+/* Round corners */
+.round {
+	-moz-border-radius: 		10px;
+	-webkit-border-radius:	10px;
+	border-radius:					10px;
+}
+
+/* Footer */
+
+footer {
+	text-align: left;
+	margin-top: 10px;
+	width: 710px;
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+}
+
+footer nav {
+	float: none;
+}
+
+div#debug {
+	float: left;
+}
+
+.url_list {
+	width: 100%;
+	float: none;
+}
+
+.url_entry {
+	width: 100%;
+	padding-bottom: 60px;
+}
+
+.url_entry a {
+	/* VA Red */
+	color: #6B1424;
+	font-weight: bold;
+	float:left;
+	width: 100%;
+}
+
+.url_entry div {
+	float: left;
+	color: #999;
+	font-style: italic;
+	padding-right: 10px;
+}
+
+.url_list div:last-child {
+	color: red;
+}
+
+/* Sub-Navigation */
+
+nav.sub-nav {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+nav.sub-nav {
+	background-color: #ddd;
+	padding: 0 0;
+	white-space: nowrap;
+}
+
+nav.sub-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav.sub-nav ul li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+nav.sub-nav ul li a {
+	padding: 0 5px;
+	font-weight: bold;
+	/* VA Blue */
+	color: #1E2D54;}
+
+nav.sub-nav ul li a:visited {
+/* VA Blue */
+color: #1E2D54;
+}
+
+nav.sub-nav ul li a:hover {
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+input, textarea {
+	padding: 9px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	
+	background: #FFFFFF url('images/bg_form.png') left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	}
+
+textarea {
+	width: 400px;
+	max-width: 400px;
+	height: 150px;
+	line-height: 150%;
+	}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	border-color: #C9C9C9;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+	}
+
+.form label {
+	margin-left: 10px;
+	color: #999999;
+	}
+
+.submit input {
+	width: auto;
+	padding: 9px 15px;
+	background: #617798;
+	border: 0;
+	font-size: 14px;
+	color: #FFFFFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	}
+
+
+div#flash_alert {
+	float: right;
+	padding: 10px;
+	background-color: #f6e697;
+	border: 3px solid #feb50b;
+}
+
+div#flash_notice {
+	float: right;
+	padding: 10px;
+	background-color: #b9fbd1;
+	border: 3px solid #007236;	
+}
+
+div#flash_error {
+	float: right;
+	padding: 10px;
+	background-color: #f6e697;
+	border: 3px solid #red;
+}
+
+pre.small {
+	font-size: 50%;
+}
+
+
+
+
+
+

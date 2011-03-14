@@ -1,4 +1,4 @@
-<h1>Top 10 URLs</h1>
+<h1>All URLs</h1>
 
 <%= render 'bouncers/bouncer_nav' %>
 
@@ -10,7 +10,7 @@
     <th>Url</th>
   </tr>
 
-<% @bouncers.each do |bouncer| %>
+<% @all_urls.each do |bouncer| %>
   <tr>
     <td><%= bouncer.title %></td>
 		<td><%= bouncer.chars %></td>
@@ -20,4 +20,4 @@
 <% end %>
 </table>
 
-<br />
+

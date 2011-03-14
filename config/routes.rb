@@ -1,8 +1,6 @@
 Go7::Application.routes.draw do
   resources :bouncers
-
   resources :urls
-
   resources :snippets
 
   get "pages/home"
@@ -12,6 +10,17 @@ Go7::Application.routes.draw do
   devise_for :users
   
   root :to => "pages#home"
+  
+  # Friendly matches
+  match "home"          => "pages#home"
+  match "about"         => "pages#about"
+  match "/shorten"      => "bouncers#new"
+  match "/my_urls"      => "pages#my_urls"
+  match "/top_10_urls"  => "bouncers#index"
+  match "/all_urls"     => "bouncers#all"
+  
+  # Redirecting
+  match '/:chars'       => 'bouncers#redirect'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

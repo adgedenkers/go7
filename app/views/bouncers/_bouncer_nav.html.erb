@@ -1,0 +1,12 @@
+<nav class="round sub-menu">
+	<ul>
+		<% if user_signed_in? %>
+			<li><%= link_to "My URLs", '/my_urls' %> |</li>
+			<li><%= link_to "Top 10 URLs", '/top_10_urls' %> |</li>
+			<li><%= link_to "All URLs", '/all_urls' %> |</li>
+			<li><%= link_to "Shorten a URL", '/shorten' %></li>
+		<% else %>
+			<li><%= link_to "Sign in to Shorten a URL", '/users/sign_in' %></li>
+		<% end %>
+	</ul>
+</nav>
