@@ -1,0 +1,12 @@
+<nav class="round sub-menu">
+	<ul>
+		<% if user_signed_in? %>
+			<li><%= link_to "My Snippets", '/my_snippets' %> |</li>
+			<li><%= link_to "Top 10 Snippets", '/top_10_snippets' %> |</li>
+			<li><%= link_to "All Snippets", '/all_snippets' %> |</li>
+			<li><%= link_to "New Snippet", '/snippets/new' %></li>
+		<% else %>
+			<li><%= link_to "Sign in to Create a Snippet", '/snippets/new' %></li>
+		<% end %>
+	</ul>
+</nav>

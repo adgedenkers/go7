@@ -1,9 +1,13 @@
 class SnippetsController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /snippets
   # GET /snippets.xml
   def index
-    @snippets = Snippet.all
-
+    @snippets = Snippet.find_top_snippets
+    @title = "Top 10 Snippets"
+      
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @snippets }
@@ -16,6 +20,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
 
     respond_to do |format|
+      @snippet.visited!
       format.html # show.html.erb
       format.xml  { render :xml => @snippet }
     end
@@ -41,6 +46,7 @@ class SnippetsController < ApplicationController
   # POST /snippets.xml
   def create
     @snippet = Snippet.new(params[:snippet])
+    @snippet.user_id = current_user.id
 
     respond_to do |format|
       if @snippet.save
@@ -80,4 +86,28 @@ class SnippetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # ~~~~~~~~~~~~~~~~~
+  # My Methods  ~
+  # ~~~~~~~~~~~~~~~~~
+  
+  def all
+    @snippets = Snippet.find(:all, :order => "count DESC")
+    @title = "All Snippets"
+    render :index
+  end
+  
+  def my_snippets
+    @snippets = Snippet.find(:all, :conditions => { :user_id => current_user.id }, :order => "count DESC")
+    @title = "My Snippets"
+    render "snippets/index"
+  end
+  
+  def user_snippets
+    @user = User.find(params[:id])
+    @snippets = @user.snippets.find(:all, :order => "created_at DESC")
+    @title = "User Snippets"
+    render "snippets/index"
+  end
+  
 end

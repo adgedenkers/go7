@@ -1,11 +1,13 @@
 class BouncersController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :redirect]
   
   # GET /bouncers
   # GET /bouncers.xml
   def index
-    @bouncers = Bouncer.find_top_urls
+    @bouncers           = Bouncer.find_top_urls
+    @title              = "Top 10 URLs"
+    @show_edit_controls = false
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,16 +46,20 @@ class BouncersController < ApplicationController
   # POST /bouncers.xml
   def create
     @bouncer = Bouncer.new(params[:bouncer])
-
+    if @bouncer.chars = "random"
+      @bouncer.chars = Bouncer.get_random_string
+    end  
+    
     respond_to do |format|
       if @bouncer.save
-        format.html { redirect_to(@bouncer, :notice => 'Bouncer was successfully created.') }
+        format.html { redirect_to(@bouncer, :notice => 'URL was successfully created.') }
         format.xml  { render :xml => @bouncer, :status => :created, :location => @bouncer }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bouncer.errors, :status => :unprocessable_entity }
       end
     end
+    
   end
 
   # PUT /bouncers/1
@@ -63,7 +69,7 @@ class BouncersController < ApplicationController
 
     respond_to do |format|
       if @bouncer.update_attributes(params[:bouncer])
-        format.html { redirect_to(@bouncer, :notice => 'Bouncer was successfully updated.') }
+        format.html { redirect_to(@bouncer, :notice => 'URL was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -89,7 +95,17 @@ class BouncersController < ApplicationController
   # ~~~~~~~~~~~~~~~~~
   
   def all
-    @all_urls = Bouncer.find(:all, :order => "count DESC")
+    @bouncers = Bouncer.find(:all, :order => "count DESC")
+    @title = "All URLs"
+    @show_edit_controls = false
+    render :index
+  end
+  
+  def my_urls
+    @bouncers = Bouncer.find(:all, :conditions => { :user_id => current_user.id }, :order => "count DESC")
+    @title = "My URLs"
+    @show_edit_controls = true
+    render :index
   end
   
   def redirect
@@ -106,6 +122,8 @@ class BouncersController < ApplicationController
     end
     
   end
+  
+
   
   
 end

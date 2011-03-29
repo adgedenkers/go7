@@ -1,20 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<h2>
   <%= @bouncer.title %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @bouncer.url %>
-</p>
-
-<p>
-  <b>Chars:</b>
-  <%= @bouncer.chars %>
-</p>
-
-
+</h2>
+<div class="form_menu">
 <%= link_to 'Edit', edit_bouncer_path(@bouncer) %> |
 <%= link_to 'Back', "/my_urls" %>
+</div>
+
+<table class="show_table">
+	<tr>
+		<td class="show_table_label">Title</td>
+		<td><%= @bouncer.title %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Full URL</td>
+		<td><%= @bouncer.url %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Character String</td>
+		<td><a href="http://go.va.gov/<%= @bouncer.chars %>">http://go.va.gov/<b><%= @bouncer.chars %></b></a></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Last Used</td>
+		<td><%= @bouncer.last_used %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Open Count</td>
+		<td><%= @bouncer.count %></td>
+	</tr>
+	
+</table>

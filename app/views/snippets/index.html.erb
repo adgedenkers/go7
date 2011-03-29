@@ -1,25 +1,29 @@
-<h1>Listing snippets</h1>
+<!--<h1>Top 10 Snippets</h1>-->
+<h1><%= @title %></h1>
+
+<%= render 'snippets/nav' %>
 
 <table>
   <tr>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Snippet</th>
+    <th>Author</th>
+		<th>Opened</th>
+    <th>Date Updated</th>
+		
   </tr>
 
 <% @snippets.each do |snippet| %>
   <tr>
-    <td><%= snippet.content %></td>
-    <td><%= snippet.user_id %></td>
-    <td><%= link_to 'Show', snippet %></td>
-    <td><%= link_to 'Edit', edit_snippet_path(snippet) %></td>
-    <td><%= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% if snippet.title %>
+		<td><%= link_to snippet.title, snippet %></td>
+		<% else %>
+		<td><%= link_to snippet.created_at, snippet %></td>
+		<% end %>
+		<td><a href="/user_snippets/<%= snippet.user.id %>"><%= snippet.user.email %></a></td>
+		<td><%= snippet.count %></td>
+		<td><%= snippet.updated_at %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Snippet', new_snippet_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314135953) do
+ActiveRecord::Schema.define(:version => 20110314220427) do
 
   create_table "bouncers", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(:version => 20110314135953) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.integer  "count"
+    t.datetime "last_used"
+    t.string   "tags"
   end
 
   create_table "users", :force => true do |t|

@@ -1,4 +1,4 @@
-<h1>Top 10 URLs</h1>
+<h1><%= @title %></h1>
 
 <%= render 'bouncers/bouncer_nav' %>
 
@@ -8,6 +8,10 @@
 		<th width="30px">Chars</th>
 		<th width="30px">Count</th>
     <th>Url</th>
+		<% if @show_edit_controls %>
+			<th width="30px"></th>
+	    <th width="30px"></th>
+		<% end %>
   </tr>
 
 <% @bouncers.each do |bouncer| %>
@@ -15,7 +19,11 @@
     <td><%= bouncer.title %></td>
 		<td><%= bouncer.chars %></td>
 		<td><%= bouncer.count %></td>
-    <td><%= bouncer.url %></td>
+    <td><a href="<%= bouncer.url %>" alt="<%= bouncer.url %>"><%= bouncer.url.slice(0...50) %><%= "..." if bouncer.url.length > 50 %></a></td>
+		<% if @show_edit_controls %>
+			<td><%= link_to 'Show', bouncer %></td>
+	    <td><%= link_to 'Edit', edit_bouncer_path(bouncer) %></td>
+		<% end %>
   </tr>
 <% end %>
 </table>

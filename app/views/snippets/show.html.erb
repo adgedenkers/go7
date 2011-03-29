@@ -1,15 +1,42 @@
+<h1>Details</h1>
+<%= render 'snippets/nav' %>
+
 <p id="notice"><%= notice %></p>
+<br/><br/><br/>
+<div class="form_menu">
+	<% if user_signed_in? %>
+		<% if current_user.id == @snippet.user.id %>
+			<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+		<% end %>
+	<% end %>
+	<%= link_to 'Back', snippets_path %>
+</div>
+<br/>
 
-<p>
-  <b>Content:</b>
-  <pre><%= @snippet.content %></pre>
-</p>
+<table class="show_table">
+	<tr>
+		<td class="show_table_label">Title</td>
+		<td class="show_table_body"><%= @snippet.title %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Author</td>
+		<td class="show_table_body"><%= @snippet.user.email %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Tags</td>
+		<td class="show_table_body"><%= @snippet.tags %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Open Count</td>
+		<td class="show_table_body"><%= @snippet.count %></td>
+	</tr>
+	<tr>
+		<td class="show_table_label">Content</td>
+		<td class="show_table_body">
+			<div id="code_box">
+		  	<pre><%= @snippet.content %></pre>
+			</div>
+		</td>
+	</tr>
+</table>
 
-<p>
-  <b>User:</b>
-  <%= @snippet.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
-<%= link_to 'Back', snippets_path %>

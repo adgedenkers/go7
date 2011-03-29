@@ -1,6 +1,12 @@
-<h1>Editing bouncer</h1>
+<h1>Editing URL</h1>
 
-<%= render 'form' %>
+<h2><%= @bouncer.title %></h2>
 
+<div class="form_menu">
 <%= link_to 'Show', @bouncer %> |
 <%= link_to 'Back', bouncers_path %>
+</div>
+
+<br/>
+
+<%= render 'form' %>

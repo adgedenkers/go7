@@ -1,2 +1,27 @@
-<h1>Welcome to go.va.gov</h1>
+<h1>Welcome</h1>
+
+<div id="page_content">
+	<div class="front" id="url_shortener">
+		<h3><a href="/top_10_urls" class="title_link">URL Shortener</a></h3>
+		<p>Shorten long URLs to make it easier to share them.</p>
+		<div>
+			<h4>Top URL</h4>
+			<div>
+				<a href="/<%= @top_url.chars %>" title="<%= @top_url.title %>">http://go.va.gov/<%= @top_url.chars %></a> | <%= @top_url.title %><br/>
+				Opened <%= @top_url.count %> times.
+			</div>
+		</div>
+	</div>
+	<div class="front" id="bin">
+		<h3><a href="/snippets" class="title_link">VA PasteBin</a></h3>
+		<p>Paste text into the box to easily share it.</p>
+		<div>
+			<h4>Most Viewed Snippet</h4>
+			<div>
+				<a href="/snippets/<%= @top_snippet.id %>"><%= @top_snippet.title %></a><br/>
+				Opened <%= @top_snippet.count %> times.
+			</div>
+		</div>
+	</div>
+</div>
 

@@ -12,19 +12,56 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :chars %><br />
-    <%= f.text_field :chars %>
+    <%= f.label "Page Title" %><br />
+    <%= f.text_field :title %>
   </div>
+  <div class="field">
+    <%= f.label "Character String" %>   <span id="character_string_method" style="font-weight:normal;">( <a id="use_random" class="selected_option">Random</a> | <a id="use_custom">Custom</a> )</span><br />
+    <%= f.text_field :chars %><div id="edit_chars" class="field_message"> </div>
+  </div>
+	<br/>
   <div class="actions">
     <%= f.submit "Save" %>
   </div>
 <br/>
 <% end %>
+
+<script>
+	$(document).ready(function () {
+		
+		if ($("#bouncer_chars").val() == "") {
+			$("#bouncer_chars").hide().val("random");
+		}
+		
+		// Assign click event to 'Random' link
+		$("#use_random").click(function(){
+			$("#bouncer_chars").attr("disabled","disabled").slideUp().val("random");
+			$("#use_random").addClass("selected_option");
+			$("#use_custom").removeClass("selected_option");
+		});
+		
+		// Assign click event to 'Custom' link
+		$("#use_custom").click(function(){
+			$("#bouncer_chars").val("").removeAttr("disabled").focus().slideDown();
+			$("#use_custom").addClass("selected_option");
+			$("#use_random").removeClass("selected_option");
+		});
+		
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
