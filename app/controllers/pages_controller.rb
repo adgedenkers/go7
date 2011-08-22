@@ -4,8 +4,8 @@ class PagesController < ApplicationController
   def home(params = {})
     @bouncer = params[:chars]
     
-    @top_url = Bouncer.first(:order => "count DESC")
-    @top_snippet = Snippet.first(:order => "count DESC")
+    #@top_url = Bouncer.first(:order => "count DESC")
+    #@top_snippet = Snippet.first(:order => "count DESC")
   end
 
   def about
